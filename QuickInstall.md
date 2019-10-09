@@ -85,3 +85,7 @@ services:
       SER2NET_CONFIG: "9999:raw:0:/tmp/printer:115200 8DATABITS NONE 1STOPBIT -XONXOFF LOCAL -RTSCTS"
     restart: always
 ```
+# (6) Start stack
+```
+docker-compose up -d
+```
