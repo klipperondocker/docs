@@ -74,9 +74,6 @@ services:
 
   klipper:
     image: klipperondocker/klipper:1b8a0079
-    build: 
-      context: ./src
-      dockerfile: Dockerfile.klipper
     restart: always
     privileged: true
     volumes:
