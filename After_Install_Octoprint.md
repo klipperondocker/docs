@@ -10,3 +10,6 @@
   * ...
 * Settings -> Folders 
   * set Upload Folder to "/uploads"
+* Settings -> Serial Connection
+  * Serial port: "/tmp/printer"
+  * Baud rate: 115200
