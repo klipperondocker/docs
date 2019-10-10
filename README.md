@@ -20,5 +20,5 @@ Components
 1. [Installation](install.md)
 2. [Octoprint recommended settings](octoprint_recommended.md)
 3. [Klipper recommended settings](klipper_recommended.md)
-4. [OtoKlipper recommended settings](octoklipper_recommended.md)
+4. [OctoKlipper recommended settings](octoklipper_recommended.md)
 
