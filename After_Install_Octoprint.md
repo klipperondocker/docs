@@ -13,3 +13,4 @@
 * Settings -> Serial Connection
   * Serial port: "/tmp/printer"
   * Baud rate: 115200
+  * Additional serial ports: "/tmp/printer"
