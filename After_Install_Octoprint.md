@@ -14,3 +14,8 @@
   * Serial port: "/tmp/printer"
   * Baud rate: 115200
   * Additional serial ports: "/tmp/printer"
+
+On the Octoprint main page
+* on the file tab
+  * click on wrench icon, select "Only show files on SD card"
+  * click on wrench icon, select "Sort by upload date (descending)
