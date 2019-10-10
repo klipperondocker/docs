@@ -1,0 +1,64 @@
+version: 2
+
+services:
+
+  traefik:
+    image: traefik:1.7
+    command:
+      - "--api"
+      - "--docker"
+      - "--docker.exposedByDefault=false"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    ports:
+      - "${WEB_PORT}:80"
+    restart: always
+    labels:
+      - klipperondocker=1
+
+  dockerapi:
+    image: klipperondocker/dockerapi:${DOCKERAPI_VERSION}
+    ports:
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    restart: always
+    labels:
+      - klipperondocker=1
+
+  octoprint:
+    image: klipperondocker/octoprint:${OCTOPRINT_VERSION}
+    restart: always
+    privileged: true
+    ports:
+      - "7080:5000"
+    volumes:
+     - "${OCTOPRINT_CONFIG}:/octoprint_config"
+     - "${KLIPPER_CONFIG}:/klipper_config"
+     - "${UPLOADS}:/uploads"
+    environment:
+      SOCAT_TYPE: "TCP"
+      SOCAT_HOST: "klipper"
+      SOCAT_PORT: "9999"
+#      SOCAT_DEBUG: " -d -d -d -t 60 -T 60 "
+    labels:
+      - traefik.enable=true
+      - traefik.frontend.rule=Host:0.0.0.0,127.0.0.1,localhost
+      - traefik.port=5000
+      - traefik.tags=klipperondocker
+      - klipperondocker=1
+
+  klipper:
+    image: klipperondocker/klipper:${KLIPPER_VERSION}
+    restart: always
+    privileged: true
+    volumes:
+      - "/dev:/hostdevices"
+      - "${KLIPPER_CONFIG}:/klipper_config"
+      - "${KLIPPER_LOG}:/klipper_log"
+      - "${UPLOADS}:/uploads"
+    environment:
+      SER2NET_CONFIG: "9999:raw:0:/tmp/printer:115200 8DATABITS NONE 1STOPBIT -XONXOFF LOCAL -RTSCTS"
+    labels:
+      - klipperondocker=1
+
