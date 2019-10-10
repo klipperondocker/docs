@@ -22,4 +22,4 @@ RESTART
 | Name | Macro |
 | :--: | :--: |
 | E-Stop |  ```M112``` |
-| *Refresh File List | ```REFRESH_SD_CARD``` |
+| Refresh File List | ```REFRESH_SD_CARD``` |
