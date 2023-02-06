@@ -6,19 +6,14 @@
 ## (2) Create a folder to hold your data and enter it
 
 ```
-mkdir klipperondocker
-cd klipperondocker
-chmod -R 777 .
+mkdir klipperondocker && chmod -R 777 ./klipperondocker && cd klipperondocker 
 ```
 
 
 ## (3) Create initial folder structure
 
 ```
-mkdir -p data/octoprint
-mkdir -p data/klipper
-mkdir -p data/klipper_log
-mkdir -p data/uploads
+mkdir -p data/octoprint data/klipper data/klipper_log data/uploads
 ```
 
 ## (4) Create a klipper config file
